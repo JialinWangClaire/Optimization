@@ -24,10 +24,11 @@ result=svd_solver(matrix,mask)
 print('nuclear norm:', np.linalg.norm(result,'nuc'))
 
 from new_rating import new_rating
-A=new_rating(matrix,result,1)
+A=new_rating(matrix,result,0)
 print('movie recommendation ranking:',A)
 listA=[]
 for each in A:
   listA.append(each[0])
-print('movie index:',listA)
-
+print('five movie indice:',listA[:5])
+for i in listA[:5]:
+    print('movie name:', df.columns.values[i])
