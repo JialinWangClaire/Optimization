@@ -18,6 +18,8 @@ def svd_solver(A,mask,t=None,delta=None,epsilon=1e-3,max_iterations=1000):
     #interation of Y
     Y+=delta*mask*(A-X)
     #error calculation
+    # print(X.max())
+    # print(X.min())
     error=np.linalg.norm(mask*(X-A))/np.linalg.norm(mask*A)
     if error<epsilon:
       break
