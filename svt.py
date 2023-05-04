@@ -24,7 +24,14 @@ result=svd_solver(matrix,mask)
 print('nuclear norm:', np.linalg.norm(result,'nuc'))
 
 from new_rating import new_rating
-A=new_rating(matrix,result,2)
+A=new_rating(matrix,result,3)
+rating = []
+for each in A:
+    rating.append(each[1])
+from rescale import rescale_list
+B=rescale_list(rating)
+for j in range(len(B)):
+    A[j][1]=B[j]
 print('movie recommendation ranking:',A)
 listA=[]
 for each in A:
